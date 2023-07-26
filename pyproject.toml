@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "tap-rawmysql"
+version = "0.0.1"
+description = "`tap-rawmysql` is a Singer tap for MySQL, built with the Meltano Singer SDK."
+readme = ["README.md"]
+authors = ["xinfolab <xinfolab@gmail.com>"]
+keywords = [
+    "ELT",
+    "MySQL",
+    "Singer",
+    "Meltano"
+]
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = "<3.12,>=3.7.1"
+singer-sdk = { version="^0.30.0" }
+mysqlclient = "^2.2.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+singer-sdk = { version="^0.30.0", extras = ["testing"] }
+
+[build-system]
+requires = ["poetry-core>=1.0.8"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+# CLI declaration
+tap-rawmysql = 'tap_rawmysql.tap:TapRawMysql.cli'
